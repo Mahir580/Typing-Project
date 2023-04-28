@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    color: white;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    list-style: none;
+    overflow: hidden;
+}
+h1 a{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 99;
+    color: white;
+    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box{
+    width: 1300px;
+    padding: 35px;
+    background-color: #333;
+    border-radius: 10px;
+}
+.box .content-box{
+    padding: 10px 20px 5px 20px;
+}
+.box .content-box .typing-text{
+    max-height: 192px;
+    overflow-y: auto;
+}
+.typing-text::-webkit-scrollbar{
+    width: 0;
+}
+.box .content-box .typing-text p{
+    font-size: 25px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+    color: rgba(228, 228, 228, 0.664);
+}
+.typing-text p span{
+    position: relative;
+}
+
+.typing-text p span.correct{
+    color: white;
+}
+.typing-text p span.incorrect{
+    color: crimson;
+    background: rgba(226, 10, 53, 0.212);
+    outline: none;
+}
+.typing-text p span.active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    opacity: 0;
+    background-color: gold;
+    animation: blink 1s infinite ease-in-out;
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+    }
+}
+
+
+button{
+    margin-top: 2px;
+    padding: 5px 10px;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: gold;
+    transition: .3s;
+    cursor: pointer;
+    margin: 5px 50%;
+}
+button::before{
+    content: 'Restart Test';
+    font-size: 19px;
+    letter-spacing: 2px;
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    background-color: #111;
+    margin-top: 20px;
+    margin-left: -64px;
+    padding: 1px 13px;
+    color: white !important;
+    opacity: 0;
+    transition: .3s;
+    border-radius: 3px;
+}
+button::after{
+    content: '';
+    position: absolute;
+    background-color: #111;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+    margin-left: -18px;
+    transition: .3s;
+    opacity: 0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+button:hover::before{
+    opacity: 1;
+    color: rgb(231, 198, 11);
+    margin-top: 40px;
+}
+button:hover::after{
+    opacity: 1;
+    margin-top: 25px;
+}
+button:active{
+    color: rgb(189, 163, 20);
+}
+
+
+.content{
+    position: absolute;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    transition: 1s;
+}
+.result-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.result-details li{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 10px 0; 
+}
+.time span{
+    position: absolute;
+    top: 26%;
+    left: 6%;
+    font-size: 30px;
+    color: gold;
+}
+.result-details li p{
+    font-size: 30px;
+}
+.result-details li span{
+    display: block;
+    margin-left: 10px;
+    font-size: 35px;
+    font-weight: 700;
+    color: gold;
+}
+
+
+
+.input-field{
+    z-index: -99;
+    opacity: 0;
+    position: absolute;
+}
